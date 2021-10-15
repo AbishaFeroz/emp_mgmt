@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      import: "configserver:https://github.com/AbishaFeroz/config-server"
+      enabled: true
+      uri: http://localhost:9296
