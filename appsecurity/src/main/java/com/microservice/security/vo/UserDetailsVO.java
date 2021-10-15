@@ -1,4 +1,4 @@
-package com.microservice.security;
+package com.microservice.security.vo;
 
 import com.microservice.security.model.UserDetailEntity;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,18 +10,18 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserDetailsImpl implements UserDetails {
+public class UserDetailsVO implements UserDetails {
 
     private String userName;
     private String password;
     private Boolean active;
     private List<GrantedAuthority> authorities;
 
-    public UserDetailsImpl(){
+    public UserDetailsVO(){
 
     }
 
-    public UserDetailsImpl(UserDetailEntity userDetailEntity){
+    public UserDetailsVO(UserDetailEntity userDetailEntity){
         this.userName = userDetailEntity.getUserName();
         this.password = userDetailEntity.getPassword();
         this.active = userDetailEntity.getActive();

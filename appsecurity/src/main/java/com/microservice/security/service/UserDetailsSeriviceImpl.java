@@ -1,7 +1,8 @@
-package com.microservice.security;
+package com.microservice.security.service;
 
 import com.microservice.security.model.UserDetailEntity;
 import com.microservice.security.repository.UserRepository;
+import com.microservice.security.vo.UserDetailsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +21,6 @@ public class UserDetailsSeriviceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         Optional<UserDetailEntity> userEntity = userRepository.findByUserName(userName);
         userEntity.orElseThrow(() -> new UsernameNotFoundException("Not found : " + userName));
-        return userEntity.map(UserDetailsImpl::new).get();
+        return userEntity.map(UserDetailsVO::new).get();
     }
 }

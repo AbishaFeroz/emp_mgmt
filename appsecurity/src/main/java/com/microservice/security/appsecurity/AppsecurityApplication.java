@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Component;
 //		HibernateJpaAutoConfiguration.class
 //})
 @SpringBootApplication
+@EnableDiscoveryClient
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
 @EntityScan(basePackages = "com.microservice.security.model")
 @ComponentScan({"com.microservice.security", "com.microservice.security.configuration", "com.microservice.security.resource", "com.microservice.security.appsecurity"})
